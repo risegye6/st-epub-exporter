@@ -1,0 +1,8 @@
+#export-epub-btn {
+    cursor: pointer;
+    color: #a8a8a8;
+    transition: color 0.2s;
+}
+#export-epub-btn:hover {
+    color: #ffffff;
+}
