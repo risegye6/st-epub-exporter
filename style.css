@@ -1,0 +1,180 @@
+/* ======================================================
+   실리태번 EPUB exporter (Refined Version)
+====================================================== */
+
+/* 모달창 배경 */
+.epub-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important; 
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex !important;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px); 
+    z-index: 2147483647 !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* 팝업 (실리태번 커스텀 테마) */
+.epub-modal-content {
+    position: relative;
+    background: var(--SmartThemeBlurTintColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    color: var(--SmartThemeTextColor);
+    border-radius: 16px; 
+    padding: 32px 36px; 
+    width: 440px;
+    max-width: 90vw;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+    backdrop-filter: blur(12px);
+    font-family: inherit;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* 모달 제목 */
+.epub-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2); 
+    padding-bottom: 14px;
+    font-size: 1.3rem; 
+    font-weight: 700; 
+    letter-spacing: -0.5px; 
+}
+
+.epub-setting-group {
+    margin-bottom: 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 설정 제목 (라벨) */
+.epub-setting-group label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600; 
+    opacity: 0.9;
+}
+
+/* 챕터 지정 설명글 등 작은 글씨 */
+.epub-setting-group small {
+    font-size: 0.85rem;
+    opacity: 0.6 !important;
+    margin-bottom: 4px !important;
+}
+
+/* 입력창 스타일 */
+.epub-text-input,
+.epub-textarea {
+    background: var(--SmartThemeBodyColor);
+    color: var(--SmartThemeTextColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 8px; 
+    padding: 10px 14px; 
+    font-family: inherit;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.25s ease; 
+}
+
+.epub-textarea {
+    resize: vertical;
+    min-height: 85px;
+    line-height: 1.6; 
+}
+
+/* 입력창 클릭했을 때 테두리 색상 효과 */
+.epub-text-input:focus,
+.epub-textarea:focus {
+    outline: none;
+    border-color: var(--SmartThemeQuoteColor);
+    box-shadow: 0 0 0 3px rgba(100, 150, 255, 0.15); 
+    transform: translateY(-1px); 
+}
+
+/* 우측 상단 X 닫기 버튼 */
+.epub-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.5; 
+    transition: all 0.2s ease;
+    border-radius: 50%;
+}
+
+.epub-close-btn:hover {
+    opacity: 1;
+    background: rgba(128, 128, 128, 0.1); 
+}
+
+/* 하단 버튼 컨테이너 */
+.epub-modal-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end;
+    gap: 12px; 
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(128, 128, 128, 0.15); 
+}
+
+/* 하단 버튼 스타일 (취소 / 다운로드) */
+#epub-export-modal .epub-modal-actions .menu_button {
+    width: auto !important;
+    flex: 0 1 auto !important;
+    padding: 8px 20px !important; 
+    font-size: 0.9rem !important;
+    font-weight: 600 !important; 
+    min-width: 80px;
+    margin: 0 !important;
+    border-radius: 8px !important; 
+    transition: all 0.2s ease !important;
+}
+
+#epub-export-modal .epub-modal-actions .menu_button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+#epub-include-avatars {
+    position: relative;
+    top: 1px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* 모바일 화면 맞춤 */
+@media (max-width: 768px) {
+    .epub-modal-content {
+        width: 92vw;
+        padding: 24px 20px;
+        max-height: 85vh;
+        border-radius: 14px;
+    }
+    .epub-modal-actions {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+}
